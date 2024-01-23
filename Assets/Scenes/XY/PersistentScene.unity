@@ -155,7 +155,9 @@ MonoBehaviour:
   _players:
   - {fileID: 1547346158}
   - {fileID: 1487599913}
-  gameStartPoint: {fileID: 0}
+  gameStartPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   currentPlayer: 0
 --- !u!4 &335696740
 Transform:
