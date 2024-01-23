@@ -31,7 +31,7 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         _players[1].SetActive(false);
     }
 
-    void ResetPlayer()
+    public void ResetPlayer()
     {
         _players[currentPlayer].SetActive(true);
         _players[currentPlayer].transform.position = gameStartPoint.position;
