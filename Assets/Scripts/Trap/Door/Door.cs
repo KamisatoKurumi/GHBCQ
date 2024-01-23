@@ -18,7 +18,7 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isPlayerInRange)
+        if(InputManager.instance._interact && isPlayerInRange)
         {
             Debug.Log("GetKeyDown_E");
             if(playerItem.CheckHasKey() && playerItem.CompareKey(correctKey))
