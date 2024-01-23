@@ -10,6 +10,7 @@ public class Plateform_Destroy : MonoBehaviour
     
     void Start()
     {
+        particle.Stop();
         anim = GetComponent<Animator>();
     }
 
