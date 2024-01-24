@@ -9,5 +9,5 @@ public class PlayerTag : MonoBehaviour
 
 public enum PlayerType
 {
-    A,B
+    A,B,Both
 }
