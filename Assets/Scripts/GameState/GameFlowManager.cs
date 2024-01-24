@@ -7,7 +7,7 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
 {
     [SerializeField]private GameObject[] _players;
 
-    [SerializeField]private Transform gameStartPoint;
+    [SerializeField]private Transform[] gameStartPoints = new Transform[2];
 
     [SerializeField]private int currentPlayer;
 
@@ -16,7 +16,19 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
     void Awake()
     {
         base.Awake();
-        gameStartPoint = GameObject.Find("StartPoint").transform;
+        Transform startPoint = GameObject.Find("StartPoint").transform;
+        if(startPoint.childCount <= 0)
+        {
+            gameStartPoints[0] = startPoint;
+            gameStartPoints[1] = startPoint;
+        }
+        else
+        {
+            for(int i = 0;i <= 1; ++i)
+            {
+                gameStartPoints[i] = GameObject.Find("StartPoint").transform.GetChild(i).transform;
+            }
+        }
     }
 
     void Start()
@@ -31,10 +43,10 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         _players[1].SetActive(false);
     }
 
-    void ResetPlayer()
+    public void ResetPlayer()
     {
         _players[currentPlayer].SetActive(true);
-        _players[currentPlayer].transform.position = gameStartPoint.position;
+        _players[currentPlayer].transform.position = gameStartPoints[currentPlayer].position;
     }
 
     public void PassLevel()
