@@ -13,9 +13,31 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
 
     public static event Action OnGameOver;
 
-    void Awake()
+    // void Awake()
+    // {
+    //     base.Awake();
+    //     Transform startPoint = GameObject.Find("StartPoint").transform;
+    //     if(startPoint.childCount <= 0)
+    //     {
+    //         gameStartPoints[0] = startPoint;
+    //         gameStartPoints[1] = startPoint;
+    //     }
+    //     else
+    //     {
+    //         for(int i = 0;i <= 1; ++i)
+    //         {
+    //             gameStartPoints[i] = GameObject.Find("StartPoint").transform.GetChild(i).transform;
+    //         }
+    //     }
+    // }
+
+    void Start()
     {
-        base.Awake();
+        // InitLevel();
+    }
+
+    public void InitLevel()
+    {
         Transform startPoint = GameObject.Find("StartPoint").transform;
         if(startPoint.childCount <= 0)
         {
@@ -29,15 +51,7 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
                 gameStartPoints[i] = GameObject.Find("StartPoint").transform.GetChild(i).transform;
             }
         }
-    }
 
-    void Start()
-    {
-        InitLevel();
-    }
-
-    void InitLevel()
-    {
         currentPlayer = 0;
         ResetPlayer();
         _players[1].SetActive(false);
