@@ -19475,7 +19475,7 @@ GameObject:
   - component: {fileID: 1136614071126980399}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19743,7 +19743,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.046160668}
+  m_Offset: {x: 0, y: -0.041669607}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -19754,7 +19754,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3284099}
+  m_Size: {x: 1, y: 1.3576868}
   m_EdgeRadius: 0
 --- !u!50 &7877115343462028924
 Rigidbody2D:
@@ -19920,13 +19920,14 @@ GameObject:
   m_Component:
   - component: {fileID: 9181563894377856864}
   - component: {fileID: 9181563894377856866}
+  - component: {fileID: 1547346161}
   m_Layer: 0
   m_Name: Player_A
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9181563894377856864
 Transform:
   m_ObjectHideFlags: 0
@@ -19965,7 +19966,7 @@ MonoBehaviour:
   _detectionRayLength: 0.1
   _rayBuffer: 0.1
   _acceleration: 90
-  _moveClamp: 13
+  _moveClamp: 7
   _deAcceleration: 60
   _apexBonus: 2
   _fallClamp: -40
@@ -19977,3 +19978,17 @@ MonoBehaviour:
   _jumpBuffer: 0.1
   _jumpEndEarlyGravityModifier: 3
   _freeColliderIterations: 10
+--- !u!114 &1547346161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181563894377856867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84af3b77eb7ce9844940742743d5c538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerItemHandler: {fileID: 7357357639847157867}
+  _playerTag: {fileID: 1136614071126980399}

@@ -181,18 +181,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5190598933852431709, guid: 46547dd98f7c44f4abf00ca269696fad, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3189685
-      objectReference: {fileID: 0}
-    - target: {fileID: 5190598933852431709, guid: 46547dd98f7c44f4abf00ca269696fad, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.062330604
-      objectReference: {fileID: 0}
-    - target: {fileID: 7004050918875247734, guid: 46547dd98f7c44f4abf00ca269696fad, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 9181563894377856864, guid: 46547dd98f7c44f4abf00ca269696fad, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -237,10 +225,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9181563894377856866, guid: 46547dd98f7c44f4abf00ca269696fad, type: 3}
-      propertyPath: _moveClamp
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 9181563894377856867, guid: 46547dd98f7c44f4abf00ca269696fad, type: 3}
       propertyPath: m_Name
       value: Player_B
@@ -277,7 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactKey: 101
+  _resetGameKey: 114
   _interact: 0
+  _resetGame: 0
 --- !u!4 &1259973006
 Transform:
   m_ObjectHideFlags: 0
@@ -431,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013464565}
   - component: {fileID: 2013464564}
+  - component: {fileID: 2013464566}
   m_Layer: 0
   m_Name: TransitionManager
   m_TagString: Untagged
@@ -451,6 +438,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startScene: StartScene
+  _levelScenes:
+  - Test1
+  - Test2
+  - Test2
+  currentLevel: 0
 --- !u!4 &2013464565
 Transform:
   m_ObjectHideFlags: 0
@@ -466,6 +458,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2013464566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013464563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc024e33dd69ee40a57f92195608049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2067427821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -473,18 +477,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6085061135231163952, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3576868
-      objectReference: {fileID: 0}
-    - target: {fileID: 6085061135231163952, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.041669607
-      objectReference: {fileID: 0}
-    - target: {fileID: 7004050918875247734, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 9181563894377856864, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -528,14 +520,6 @@ PrefabInstance:
     - target: {fileID: 9181563894377856864, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181563894377856866, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
-      propertyPath: _moveClamp
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9181563894377856866, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
-      propertyPath: _acceleration
-      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 9181563894377856867, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
       propertyPath: m_Name
