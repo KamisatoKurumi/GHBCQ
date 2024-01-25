@@ -20,6 +20,18 @@ public class LevelScene : EveryScene_Main
         GameFlowManager.OnContinueGame -= OnContinueGame;
     }
 
+    void Update()
+    {
+        if(InputManager.instance._resetGame)
+        {
+            GameFlowManager.instance.ResetCurrentLevel();
+        }
+        if(InputManager.instance._stopGame)
+        {
+            GameFlowManager.instance.PauseGame();
+        }
+    }
+
     void OnGameOver()
     {
         Time.timeScale = 0;

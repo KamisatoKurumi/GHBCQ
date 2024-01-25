@@ -40,29 +40,6 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         TransitionManager.BeforeEnterStartScene -= OnBeforeEnterStartScene;
     }
 
-    void Update()
-    {
-        if(InputManager.instance._resetGame)
-        {
-            ResetCurrentLevel();
-        }
-        if(InputManager.instance._stopGame)
-        {
-            if(isPause)
-            {
-                OnContinueGame?.Invoke();
-                Time.timeScale = 1;
-                isPause = false;
-            }
-            else
-            {
-                OnPauseGame?.Invoke();
-                Time.timeScale = 0;
-                isPause = true;
-            }
-        }
-    }
-
     public void InitLevel()
     {
         Transform startPoint = GameObject.Find("StartPoint").transform;
@@ -93,9 +70,25 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         _players[currentPlayer].transform.position = gameStartPoints[currentPlayer].position;
     }
 
-    private void ResetCurrentLevel()
+    public void ResetCurrentLevel()
     {
         TransitionManager.instance.ResetCurrentLevel();
+    }
+
+    public void PauseGame()
+    {
+        if(isPause)
+        {
+            OnContinueGame?.Invoke();
+            Time.timeScale = 1;
+            isPause = false;
+        }
+        else
+        {
+            OnPauseGame?.Invoke();
+            Time.timeScale = 0;
+            isPause = true;
+        }
     }
 
     private void OnBeforeEnterStartScene()

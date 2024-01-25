@@ -12,6 +12,14 @@ public class StartCanvas : EveryScene_Main
     [SerializeField]private GameObject levelHandler;
     [SerializeField]private GameObject levelButtonPrefab;
 
+    void Update()
+    {
+        if(InputManager.instance._stopGame)
+        {
+            Init();
+        }
+    }
+
     public override void Init()
     {
         startPanel.SetActive(true);
