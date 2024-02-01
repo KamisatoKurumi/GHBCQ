@@ -1,21 +1,47 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class GameFlowManager : MonoSingleton<GameFlowManager>
 {
     [SerializeField]private GameObject[] _players;
+    private Player[] _playerScripts;
 
     [SerializeField]private Transform[] gameStartPoints = new Transform[2];
 
     [SerializeField]private int currentPlayer;
 
-    public static event Action OnGameOver;
+    private bool isPause = false;
 
-    void Awake()
+    public static event Action OnGameOver;
+    public static event Action OnPauseGame;
+    public static event Action OnContinueGame;
+
+    void Start()
     {
-        base.Awake();
+        _playerScripts = new Player[_players.Length];
+        for(int i = 0;i < _players.Length; ++i)
+        {
+            _playerScripts[i] = _players[i].GetComponent<Player>();
+        }
+    }
+
+    void OnEnable()
+    {
+        GameFlowManager.OnGameOver += OnGameOverEvent;
+        TransitionManager.BeforeEnterStartScene += OnBeforeEnterStartScene;
+    }
+
+    void OnDisable()    
+    {
+        GameFlowManager.OnGameOver -= OnGameOverEvent;
+        TransitionManager.BeforeEnterStartScene -= OnBeforeEnterStartScene;
+    }
+
+    public void InitLevel()
+    {
         Transform startPoint = GameObject.Find("StartPoint").transform;
         if(startPoint.childCount <= 0)
         {
@@ -29,15 +55,10 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
                 gameStartPoints[i] = GameObject.Find("StartPoint").transform.GetChild(i).transform;
             }
         }
-    }
-
-    void Start()
-    {
-        InitLevel();
-    }
-
-    void InitLevel()
-    {
+        foreach(Player player in _playerScripts)
+        {
+            player.Init();
+        }
         currentPlayer = 0;
         ResetPlayer();
         _players[1].SetActive(false);
@@ -49,9 +70,38 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         _players[currentPlayer].transform.position = gameStartPoints[currentPlayer].position;
     }
 
+    public void ResetCurrentLevel()
+    {
+        TransitionManager.instance.ResetCurrentLevel();
+    }
+
+    public void PauseGame()
+    {
+        if(isPause)
+        {
+            OnContinueGame?.Invoke();
+            Time.timeScale = 1;
+            isPause = false;
+        }
+        else
+        {
+            OnPauseGame?.Invoke();
+            Time.timeScale = 0;
+            isPause = true;
+        }
+    }
+
+    private void OnBeforeEnterStartScene()
+    {
+        foreach(var player in _players)
+        {
+            player.SetActive(false);
+        }
+    }
+
     public void PassLevel()
     {
-        Debug.Log("PassLevel");
+        // Debug.Log("PassLevel");
         if(currentPlayer == 0)
         {
             currentPlayer = 1;
@@ -60,8 +110,16 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         }
         else
         {
-            Debug.Log("Game Over");
+            // Debug.Log("Game Over");
             OnGameOver?.Invoke();
+        }
+    }
+
+    void OnGameOverEvent()
+    {
+        foreach(GameObject player in _players)
+        {
+            player.SetActive(false);
         }
     }
 }
