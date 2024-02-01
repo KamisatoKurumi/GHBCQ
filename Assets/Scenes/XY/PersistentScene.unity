@@ -229,6 +229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_B
       objectReference: {fileID: 0}
+    - target: {fileID: 9181563894377856867, guid: 46547dd98f7c44f4abf00ca269696fad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46547dd98f7c44f4abf00ca269696fad, type: 3}
 --- !u!1 &1259973004
@@ -262,8 +266,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactKey: 101
   _resetGameKey: 114
+  _stopGameKey: 27
   _interact: 0
   _resetGame: 0
+  _stopGame: 0
 --- !u!4 &1259973006
 Transform:
   m_ObjectHideFlags: 0
@@ -343,7 +349,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -439,9 +445,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startScene: StartScene
   _levelScenes:
+  - Level1
+  - Level2
   - Test1
-  - Test2
-  - Test2
   currentLevel: 0
 --- !u!4 &2013464565
 Transform:
@@ -521,9 +527,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9181563894377856866, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
+      propertyPath: _moveClamp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9181563894377856867, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
       propertyPath: m_Name
       value: Player_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181563894377856867, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd21bed77f1f5494087dbb1cf6c4ce89, type: 3}
