@@ -448,6 +448,7 @@ MonoBehaviour:
   - Level1
   - Level2
   - Level3
+  - Level4
   currentLevel: 0
 --- !u!4 &2013464565
 Transform:
