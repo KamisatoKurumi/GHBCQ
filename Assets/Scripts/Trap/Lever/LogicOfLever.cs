@@ -8,7 +8,7 @@ public class LogicOfLever : MonoBehaviour
     [SerializeField]private bool isPlayerInRange;
     private PlayerItemHandler playerItem;
     [SerializeField] private bool stateOfLever = false;
-    public LDoor lDoor;
+    public List<LDoor> lDoors;
     void Start()
     { 
        // anim = GetComponent<Animator>();
@@ -22,13 +22,19 @@ public class LogicOfLever : MonoBehaviour
             if(!stateOfLever)
             {
                 stateOfLever = true;
-                lDoor.GetComponent<DoorControledByLever>().lState = stateOfLever;
+                for(int i = 0; i < lDoors.Count; i++)
+                {
+                    lDoors[i].GetComponent<DoorControledByLever>().lState = stateOfLever;
+                }
                 //anim.SetBool("turn",stateOfLever);
             }
             else
             {
                 stateOfLever = false;
-                lDoor.GetComponent<DoorControledByLever>().lState = stateOfLever;
+                for (int i = 0; i < lDoors.Count; i++)
+                {
+                    lDoors[i].GetComponent<DoorControledByLever>().lState = stateOfLever;
+                }
                 //anim.SetBool("turn",stateOfLever);
             }
         }
