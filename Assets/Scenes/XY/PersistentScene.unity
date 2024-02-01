@@ -447,7 +447,7 @@ MonoBehaviour:
   _levelScenes:
   - Level1
   - Level2
-  - Test1
+  - Level3
   currentLevel: 0
 --- !u!4 &2013464565
 Transform:
