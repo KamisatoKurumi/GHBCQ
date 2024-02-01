@@ -61,14 +61,14 @@ namespace TarodevController {
             // Play landing effects and begin ground movement effects
             if (!_playerGrounded && _player.Grounded) {
                 _playerGrounded = true;
-                _moveParticles.Play();
+                MoveStart();
                 _landParticles.transform.localScale = Vector3.one * Mathf.InverseLerp(0, _maxParticleFallSpeed, _movement.y);
                 SetColor(_landParticles);
                 _landParticles.Play();
             }
             else if (_playerGrounded && !_player.Grounded) {
                 _playerGrounded = false;
-                _moveParticles.Stop();
+                MoveStop();
             }
 
             // Detect ground color
@@ -82,11 +82,11 @@ namespace TarodevController {
         }
 
         private void OnDisable() {
-            _moveParticles.Stop();
+            MoveStop();
         }
 
         private void OnEnable() {
-            _moveParticles.Play();
+            MoveStart();
         }
 
         void SetColor(ParticleSystem ps) {
@@ -99,7 +99,19 @@ namespace TarodevController {
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");
+        private static readonly int MoveKey = Animator.StringToHash("Move");
 
         #endregion
+
+        private void MoveStart()
+        {
+            _moveParticles.Play();
+            _anim.SetBool(MoveKey, true);
+        }
+        private void MoveStop()
+        {
+            _moveParticles.Stop();
+            _anim.SetBool(MoveKey, false);
+        }
     }
 }
