@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jie/TestScene/Level4.unity
     guid: 4e7c9aadffe83404aa639dd124486e14
+  - enabled: 1
+    path: Assets/Scenes/Jie/TestScene/Level5.unity
+    guid: 28de991c4235cdb448209820a9bbeddd
   m_configObjects: {}
