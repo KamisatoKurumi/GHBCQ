@@ -14,8 +14,8 @@ public class DoorControledByLever : MonoBehaviour
     void Start()
     {
         //anim = GetComponent<Animator>();
-        trans1 = transform.position;
-        trans2 = transform.position + new Vector3(0,5,0);
+        //trans1 = transform.position;
+        //trans2 = transform.position + new Vector3(0,5,0);
     }
 
     private void FixedUpdate()
