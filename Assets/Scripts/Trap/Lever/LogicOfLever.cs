@@ -24,7 +24,7 @@ public class LogicOfLever : MonoBehaviour
                 stateOfLever = true;
                 for(int i = 0; i < lDoors.Count; i++)
                 {
-                    lDoors[i].GetComponent<DoorControledByLever>().lState = stateOfLever;
+                    lDoors[i].GetComponent<DoorControledByLever>().lState = !lDoors[i].GetComponent<DoorControledByLever>().lState;
                 }
                 //anim.SetBool("turn",stateOfLever);
             }
@@ -33,7 +33,7 @@ public class LogicOfLever : MonoBehaviour
                 stateOfLever = false;
                 for (int i = 0; i < lDoors.Count; i++)
                 {
-                    lDoors[i].GetComponent<DoorControledByLever>().lState = stateOfLever;
+                    lDoors[i].GetComponent<DoorControledByLever>().lState = !lDoors[i].GetComponent<DoorControledByLever>().lState;
                 }
                 //anim.SetBool("turn",stateOfLever);
             }
