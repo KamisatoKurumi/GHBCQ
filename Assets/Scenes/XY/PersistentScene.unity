@@ -267,9 +267,11 @@ MonoBehaviour:
   _interactKey: 101
   _resetGameKey: 114
   _stopGameKey: 27
+  _interactLever: 101
   _interact: 0
   _resetGame: 0
   _stopGame: 0
+  _interactL: 0
 --- !u!4 &1259973006
 Transform:
   m_ObjectHideFlags: 0
@@ -450,6 +452,10 @@ MonoBehaviour:
   - Level3
   - Level4
   - Level5
+  - Level6
+  - Level7
+  - Level8
+  - Level9
   currentLevel: 0
 --- !u!4 &2013464565
 Transform:
