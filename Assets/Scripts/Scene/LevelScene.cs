@@ -59,7 +59,7 @@ public class LevelScene : EveryScene_Main
     public void OnNextLevelButton()
     {
         Debug.Log("OnNextLevelButton");
-        TransitionManager.instance.EnterLevel(TransitionManager.instance.currentLevel + 1);
+        TransitionManager.instance.EnterLevel(TransitionManager.instance.currentLevel);
     }
 
     public void OnBack2StartPanelButton()

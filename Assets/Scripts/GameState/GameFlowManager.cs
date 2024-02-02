@@ -121,5 +121,6 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         {
             player.SetActive(false);
         }
+        SaveLoadManager.instance.SaveLevelData(new LevelData(TransitionManager.instance.currentLevel, true));
     }
 }

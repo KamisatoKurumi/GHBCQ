@@ -38,6 +38,16 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             }
         }
         StartCoroutine(LoadSceneSetActive(_startScene));
+        SavaDataWhenSceneTransition();
+    }
+
+    public void SavaDataWhenSceneTransition()
+    {
+        LevelData levelData = SaveLoadManager.instance.LoadLevelData();
+        if(levelData.isPassed)
+            currentLevel = levelData.levelNumber + 1;
+        else
+            currentLevel = levelData.levelNumber;
     }
 
     public void EnterLevel(int levelIndex)
@@ -48,7 +58,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
             return;
         }
         StartCoroutine(Transition(_levelScenes[levelIndex]));
-        currentLevel = levelIndex;
+        currentLevel = levelIndex + 1;
     }
 
     public void EnterStartScene()
@@ -59,7 +69,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
 
     public void ResetCurrentLevel()
     {
-        StartCoroutine(Transition(_levelScenes[currentLevel]));
+        StartCoroutine(Transition(_levelScenes[currentLevel - 1]));
     }
     private IEnumerator Transition(string sceneName)
     {

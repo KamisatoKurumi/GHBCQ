@@ -35,6 +35,7 @@ public class StartCanvas : EveryScene_Main
 
     public void InitLevelPanel()
     {
+        TransitionManager.instance.SavaDataWhenSceneTransition();
         //Clear All Children
         foreach (Transform child in levelHandler.transform)
         {
@@ -46,5 +47,6 @@ public class StartCanvas : EveryScene_Main
             GameObject levelButton = Instantiate(levelButtonPrefab, levelHandler.transform);
             levelButton.GetComponent<LevelButton>().Init(i + 1);
         }
+        
     }
 }

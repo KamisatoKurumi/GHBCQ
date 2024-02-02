@@ -9,7 +9,6 @@ public class Test : MonoBehaviour
         // 检测鼠标左键点击
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse Left Button Clicked");
             // 获取鼠标点击位置
             Vector2 mousePosition = Input.mousePosition;
 

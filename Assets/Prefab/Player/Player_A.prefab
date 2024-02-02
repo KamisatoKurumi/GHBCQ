@@ -19966,7 +19966,7 @@ MonoBehaviour:
   _detectionRayLength: 0.1
   _rayBuffer: 0.1
   _acceleration: 90
-  _moveClamp: 7
+  _moveClamp: 10
   _deAcceleration: 60
   _apexBonus: 2
   _fallClamp: -40
