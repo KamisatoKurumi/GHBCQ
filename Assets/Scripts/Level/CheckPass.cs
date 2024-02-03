@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class CheckPass : MonoBehaviour
 {
-    [SerializeField] private List<Pass> pass;
-    [SerializeField] private int passNum;
+    [SerializeField] private List<Pass> pass1;
+    [SerializeField] private List<Pass> pass2;
+    [SerializeField] private int passType;
     [SerializeField] private List<bool> qualified;
 
     private void Start()
@@ -21,28 +22,24 @@ public class CheckPass : MonoBehaviour
         bool count = false;
         if (other.CompareTag("Player") && other.GetComponent<PlayerTag>()._tag == PlayerType.A)
         {
-            for (int i = 0; i < passNum; i++)
+            for (int i = 0; i < passType; i++)
             {
-                if (!pass[i].GetComponent<LogicOfPass>().HasThisPass(0)) count = true;
+                if (!pass1[i].GetComponent<LogicOfPass>().HasThisPass(0) && !pass2[i].GetComponent<LogicOfPass>().HasThisPass(0)) count = true;
             }
 
             if (!count) qualified[0] = true;
         }
         else if (other.CompareTag("Player") && other.GetComponent<PlayerTag>()._tag == PlayerType.B)
         {
-            for (int i = 0; i < passNum; i++)
+            for (int i = 0; i < passType; i++)
             {
-                if (!pass[i].GetComponent<LogicOfPass>().HasThisPass(1)) count = true;
+                if (!pass1[i].GetComponent<LogicOfPass>().HasThisPass(1) && !pass2[i].GetComponent<LogicOfPass>().HasThisPass(1)) count = true;
             }
 
             if (!count) qualified[1] = true;
         }
     }
-
-    // private void GainQualification(int i)
-    // {
-    //     qualified[i] = true;
-    // }
+    
 
     public bool IsQualified(int playerNum)
     {
