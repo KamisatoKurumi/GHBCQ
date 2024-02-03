@@ -7,6 +7,7 @@ public class StartCanvas : EveryScene_Main
 {
     [SerializeField]private GameObject startPanel;
     [SerializeField]private GameObject LevelPanel;
+    [SerializeField]private GameObject settingPanel;
     // [SerializeField]private Button startButton;
 
     [SerializeField]private GameObject levelHandler;
@@ -24,6 +25,7 @@ public class StartCanvas : EveryScene_Main
     {
         startPanel.SetActive(true);
         LevelPanel.SetActive(false);
+        settingPanel.SetActive(false);
     }
 
     public void Start2Level()
@@ -47,6 +49,17 @@ public class StartCanvas : EveryScene_Main
             GameObject levelButton = Instantiate(levelButtonPrefab, levelHandler.transform);
             levelButton.GetComponent<LevelButton>().Init(i + 1);
         }
-        
+    }
+
+    public void OnSetButtonClicked()
+    {
+        startPanel.SetActive(false);
+        settingPanel.SetActive(true);
+    }
+
+    public void OnQuitButtonClicked()
+    {
+        Debug.Log("Quit Game!");
+        Application.Quit();
     }
 }

@@ -30,6 +30,7 @@ public class Plateform_Destroy : MonoBehaviour
 
     public void OnBoxColliderDisable()
     {
+        AudioManager.PlayAudio(AudioName.PlateformBreak);
         particle.Play();
     }
 
