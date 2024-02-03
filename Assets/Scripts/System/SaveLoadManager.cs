@@ -40,15 +40,15 @@ public class SaveLoadManager : MonoSingleton<SaveLoadManager>
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F2))
-        {
-            SaveLevelData(new LevelData { levelNumber = 2, isPassed = true});
-        }
-        if(Input.GetKeyDown(KeyCode.F3))
-        {
-            LevelData loadedData = LoadLevelData();
-            Debug.Log("Level 2 Passed: " + loadedData.isPassed);
-        }
+        // if(Input.GetKeyDown(KeyCode.F2))
+        // {
+        //     SaveLevelData(new LevelData { levelNumber = 2, isPassed = true});
+        // }
+        // if(Input.GetKeyDown(KeyCode.F3))
+        // {
+        //     LevelData loadedData = LoadLevelData();
+        //     Debug.Log("Level 2 Passed: " + loadedData.isPassed);
+        // }
     }
 
     public void SaveLevelData(LevelData data)
