@@ -19976,7 +19976,7 @@ MonoBehaviour:
   _jumpApexThreshold: 10
   _coyoteTimeThreshold: 0.1
   _jumpBuffer: 0.1
-  _jumpEndEarlyGravityModifier: 3
+  _jumpEndEarlyGravityModifier: 1
   _freeColliderIterations: 10
 --- !u!114 &1547346161
 MonoBehaviour:
