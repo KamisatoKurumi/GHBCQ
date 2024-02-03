@@ -24,6 +24,7 @@ public class Plateform_Destroy : MonoBehaviour
 
     private IEnumerator DestroyPlateform()
     {
+        anim.SetTrigger("CollapseSoon");
         yield return new WaitForSeconds(timeBeforeDestroy);
         anim.SetTrigger("Collapse");
     }

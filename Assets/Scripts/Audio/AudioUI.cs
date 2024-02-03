@@ -9,28 +9,41 @@ public class AudioUI : MonoBehaviour
     [SerializeField]private AudioMixer audioMixer;
     [SerializeField]private Slider sliderBGM;
     [SerializeField]private Slider sliderSFX;
+    [SerializeField]private Slider sliderMaster;
 
     private void Awake()
     {
-        audioMixer.GetFloat("BGM", out float bgmValue);
-        audioMixer.GetFloat("SFX", out float sfxValue);
+        audioMixer.GetFloat("Master", out float masterValue);
+        audioMixer.GetFloat("BGMVolume", out float bgmValue);
+        audioMixer.GetFloat("SFXVolume", out float sfxValue);
+        Debug.Log(bgmValue + " " + sfxValue + " " + masterValue);
         sliderBGM.value = bgmValue;
         sliderSFX.value = sfxValue;
+        sliderMaster.value = masterValue;
 
+        sliderMaster.onValueChanged.AddListener(value =>
+        {
+            Debug.Log(value);
+            audioMixer.SetFloat("MasterVolume", value);
+            if(value == sliderMaster.minValue)
+            {
+                audioMixer.SetFloat("MasterVolume", -80f);
+            }
+        });
         sliderBGM.onValueChanged.AddListener(value =>
         {
-            audioMixer.SetFloat("BGM", value);
+            audioMixer.SetFloat("BGMVolume", value);
             if(value == sliderBGM.minValue)
             {
-                audioMixer.SetFloat("BGM", -80f);
+                audioMixer.SetFloat("BGMVolume", -80f);
             }
         });
         sliderSFX.onValueChanged.AddListener(value =>
         {
-            audioMixer.SetFloat("SFX", value);
+            audioMixer.SetFloat("SFXVolume", value);
             if(value == sliderSFX.minValue)
             {
-                audioMixer.SetFloat("SFX", -80f);
+                audioMixer.SetFloat("SFXVolume", -80f);
             }
         });
     }
