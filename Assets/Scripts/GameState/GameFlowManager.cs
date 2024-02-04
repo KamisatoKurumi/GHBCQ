@@ -59,15 +59,25 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         {
             player.Init();
         }
+    }
+
+    public void SetPlayerInStartPoint()
+    {
         currentPlayer = 0;
         ResetPlayer();
-        _players[1].SetActive(false);
     }
 
     public void ResetPlayer()
     {
         _players[currentPlayer].SetActive(true);
         _players[currentPlayer].transform.position = gameStartPoints[currentPlayer].position;
+        foreach(var player in _players)
+        {
+            if(player != _players[currentPlayer])
+            {
+                player.SetActive(false);
+            }
+        }
     }
 
     public void ResetCurrentLevel()
@@ -122,5 +132,23 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
             player.SetActive(false);
         }
         SaveLoadManager.instance.SaveLevelData(new LevelData(TransitionManager.instance.currentLevel, true));
+    }
+
+    public void LockPlayers()
+    {
+        Debug.Log("LockPlayers");
+        foreach(var player in _players)
+        {
+            player.GetComponent<PlayerController>()._active = false;
+        }
+    }
+
+    public void UnlockPlayers()
+    {
+        Debug.Log("UnlockPlayers");
+        foreach(var player in _players)
+        {
+            player.GetComponent<PlayerController>()._active = true;
+        }
     }
 }

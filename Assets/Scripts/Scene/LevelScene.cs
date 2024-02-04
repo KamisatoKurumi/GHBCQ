@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelScene : EveryScene_Main
 {
-    [SerializeField]private GameObject finalUI;
-    [SerializeField]private GameObject stopUI;
+    [SerializeField]protected GameObject finalUI;
+    [SerializeField]protected GameObject stopUI;
     void OnEnable()
     {
         GameFlowManager.OnGameOver += OnGameOver;
@@ -52,6 +52,8 @@ public class LevelScene : EveryScene_Main
     {
         Time.timeScale = 1;
         GameFlowManager.instance.InitLevel();
+        GameFlowManager.instance.SetPlayerInStartPoint();
+        GameFlowManager.instance.UnlockPlayers();
         finalUI.SetActive(false);
         stopUI.SetActive(false);
     }
