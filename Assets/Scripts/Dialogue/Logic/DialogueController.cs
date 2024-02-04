@@ -11,7 +11,11 @@ namespace Farm.Dialogue
     {
         // private NPCMovement npc => GetComponent<NPCMovement>();
         public UnityEvent OnFinishEvent;
-        public List<DialoguePiece> dialogueList = new List<DialoguePiece>();
+        //能触发这条对话的对象
+        public PlayerType playerType;
+        public List<DialoguePiece> dialogueList_PlayerA = new List<DialoguePiece>();
+        public List<DialoguePiece> dialogueList_PlayerB = new List<DialoguePiece>();
+        private List<DialoguePiece> dialogueList = new List<DialoguePiece>();
 
         private Stack<DialoguePiece> dialogueStack;
         [SerializeField]private bool canActivate;
@@ -30,10 +34,11 @@ namespace Farm.Dialogue
         private void OnTriggerEnter2D(Collider2D other) {
             if(canActivate)
             {
-                if(other.CompareTag("Player"))
+                if(other.CompareTag("Player") && (other.GetComponent<PlayerTag>()._tag == playerType || playerType == PlayerType.Both))
                 {
                     canTalk = true;
-                    // canTalk = !npc.isMoving && npc.interactable;
+                    dialogueList = other.GetComponent<PlayerTag>()._tag == PlayerType.A ? dialogueList_PlayerA : dialogueList_PlayerB;
+                    FillDialogueStack();
                 }
             }
             else

@@ -867,6 +867,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: playerType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: dialogueList.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -875,8 +879,40 @@ PrefabInstance:
       value: aaa
       objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_PlayerA.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_PlayerB.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: dialogueList.Array.data[0].dialogueText
       value: AAAAAAAAA
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_PlayerA.Array.data[0].name
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_PlayerB.Array.data[0].name
+      value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_PlayerA.Array.data[0].hasToPause
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_PlayerB.Array.data[0].hasToPause
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_PlayerA.Array.data[0].dialogueText
+      value: I'm A
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_PlayerB.Array.data[0].dialogueText
+      value: I'm B
       objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292467, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: m_Name
