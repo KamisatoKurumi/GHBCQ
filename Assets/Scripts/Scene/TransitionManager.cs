@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoSingleton<TransitionManager>
 {
-    [SceneName]
     [SerializeField]private string _startScene;
 
     [SerializeField]public string[] _levelScenes;
