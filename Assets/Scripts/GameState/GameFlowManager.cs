@@ -72,6 +72,10 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
 
     public void ResetCurrentLevel()
     {
+        for (int i = 0; i < _players[currentPlayer].GetComponentInChildren<PlayerTag>().hadKeys.Count; i++)
+        {
+            _players[currentPlayer].GetComponentInChildren<PlayerTag>().hadKeys[i] = false;
+        }
         TransitionManager.instance.ResetCurrentLevel();
     }
 
