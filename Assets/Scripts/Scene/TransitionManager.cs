@@ -54,7 +54,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     {
         if(levelIndex >= _levelScenes.Length)
         {
-            EnterStartScene();
+            Debug.LogError("LevelIndex out of range");
             return;
         }
         StartCoroutine(Transition(_levelScenes[levelIndex]));
