@@ -27,6 +27,10 @@ public class CheckPoint : MonoBehaviour
                 {
                     Debug.Log("CheckPoint");
                     GameFlowManager.instance.PassLevel();
+                    for(int i=0;i< (int)KeyTpye.One; i++)
+                    {
+                        other.GetComponent<PlayerTag>().hadKeys[i] = false;
+                    }
                 }
             }
             if (keyTpye == KeyTpye.Two)
@@ -35,6 +39,10 @@ public class CheckPoint : MonoBehaviour
                 {
                     Debug.Log("CheckPoint");
                     GameFlowManager.instance.PassLevel();
+                    for (int i = 0; i < (int)KeyTpye.Two; i++)
+                    {
+                        other.GetComponent<PlayerTag>().hadKeys[i] = false;
+                    }
                 }
             }
             if (keyTpye == KeyTpye.Three)
@@ -43,6 +51,10 @@ public class CheckPoint : MonoBehaviour
                 {
                     Debug.Log("CheckPoint");
                     GameFlowManager.instance.PassLevel();
+                    for (int i = 0; i < (int)KeyTpye.Three; i++)
+                    {
+                        other.GetComponent<PlayerTag>().hadKeys[i] = false;
+                    }
                 }
             }
         }
