@@ -4,20 +4,18 @@ using Farm.Dialogue;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class DialogueUI : MonoBehaviour
 {
     public GameObject dialogueBox;
-    public Text dialogueText;
+    public TextMeshProUGUI dialogueText;
     public Image faceRight, faceLeft;
-    public Text nameRight, nameLeft;
-    public GameObject continueBox;
 
 
 
     private void Awake() {
         dialogueBox.SetActive(false);
-        continueBox.SetActive(false);
     }
 
     private void OnEnable() {
@@ -41,7 +39,6 @@ public class DialogueUI : MonoBehaviour
             piece.isDone = false;
 
             dialogueBox.SetActive(true);
-            continueBox.SetActive(false);
 
             dialogueText.text = string.Empty;
 
@@ -52,29 +49,23 @@ public class DialogueUI : MonoBehaviour
                     faceRight.gameObject.SetActive(false);
                     faceLeft.gameObject.SetActive(true);
                     faceLeft.sprite = piece.faceImage;
-                    nameLeft.text = piece.name;
                 }
                 else
                 {
                     faceRight.gameObject.SetActive(true);
                     faceLeft.gameObject.SetActive(false);
                     faceRight.sprite = piece.faceImage;
-                    nameRight.text = piece.name;
                 }
             }
             else
             {
                 faceLeft.gameObject.SetActive(false);
                 faceRight.gameObject.SetActive(false);
-                nameLeft.gameObject.SetActive(false);
-                nameRight.gameObject.SetActive(false);
             }
             yield return dialogueText.DOText(piece.dialogueText, 1f).WaitForCompletion();
 
             piece.isDone = true;
 
-            if(piece.hasToPause && piece.isDone)
-                continueBox.SetActive(true);
         }
         else
         {
