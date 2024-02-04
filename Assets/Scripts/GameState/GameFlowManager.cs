@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameFlowManager : MonoSingleton<GameFlowManager>
 {
-    [SerializeField]private GameObject[] _players;
+    public GameObject[] _players;
     private Player[] _playerScripts;
 
     [SerializeField]private Transform[] gameStartPoints = new Transform[2];
@@ -15,6 +15,7 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
 
     private bool isPause = false;
 
+    public static event Action OnInitLevel;
     public static event Action OnGameOver;
     public static event Action OnPauseGame;
     public static event Action OnContinueGame;
@@ -42,6 +43,7 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
 
     public void InitLevel()
     {
+        OnInitLevel?.Invoke();
         Transform startPoint = GameObject.Find("StartPoint").transform;
         if(startPoint.childCount <= 0)
         {

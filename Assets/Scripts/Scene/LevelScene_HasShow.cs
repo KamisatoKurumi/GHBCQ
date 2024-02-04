@@ -33,8 +33,8 @@ public class LevelScene_HasShow : LevelScene
             playerPoints[i] = playerPointTrans.GetChild(i);
         }
 
-        playerA = GameObject.Find("Player_A");
-        playerB = GameObject.Find("Player_B");
+        playerA = GameFlowManager.instance._players[0];
+        playerB = GameFlowManager.instance._players[1];
     }
 
     public override void Init()
