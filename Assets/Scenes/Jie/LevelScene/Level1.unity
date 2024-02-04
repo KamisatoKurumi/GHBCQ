@@ -375,19 +375,46 @@ MonoBehaviour:
   dialogueList_PlayerA: []
   dialogueList_PlayerB: []
   dialogueList_Both:
-  - faceImage: {fileID: 0}
-    onLeft: 0
-    name: A
-    dialogueText: AAAAAAAAAAAAAAA
+  - faceImage: {fileID: 21300000, guid: 9ec0ca269ec0b4f4fa12877c83d9dd88, type: 3}
+    onLeft: 1
+    name: "\u7EFF"
+    dialogueText: "\u4E1C\u897F\u5230\u624B\u4E86\uFF0C\u6211\u4EEC\u8D70\u5427\u3002"
     hasToPause: 1
     isDone: 0
     AfterTalkEvent:
       m_PersistentCalls:
         m_Calls: []
-  - faceImage: {fileID: 0}
+  - faceImage: {fileID: 21300000, guid: 4817e583a6be6c5469af680c89e1311c, type: 3}
     onLeft: 0
-    name: B
-    dialogueText: BBBBBBBBBBBBBBBB
+    name: "\u84DD"
+    dialogueText: "\u4F60\u5148\u8D70\uFF0C\u6211\u7559\u4E0B\u6765\u65AD\u540E\u3002\u64CD\u4F5C\u4F60\u90FD\u8FD8\u8BB0\u5F97\u5427\u3002"
+    hasToPause: 1
+    isDone: 0
+    AfterTalkEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - faceImage: {fileID: 21300000, guid: 9ec0ca269ec0b4f4fa12877c83d9dd88, type: 3}
+    onLeft: 1
+    name: "\u7EFF"
+    dialogueText: "\u5F53\u7136\uFF0CAD\u952E\u5DE6\u53F3\u79FB\u52A8\uFF0C\u7A7A\u683C\u952E\u8DF3\u8DC3"
+    hasToPause: 1
+    isDone: 0
+    AfterTalkEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - faceImage: {fileID: 21300000, guid: 4817e583a6be6c5469af680c89e1311c, type: 3}
+    onLeft: 0
+    name: "\u84DD"
+    dialogueText: "\u5BF9\u7684\uFF0C\u8FD8\u6709\u957F\u6309\u7A7A\u683C\u952E\u53EF\u4EE5\u8DF3\u5F97\u66F4\u9AD8\uFF0C\u6309R\u952E\u53EF\u4EE5\u518D\u8BD5\u4E00\u6B21\u3002"
+    hasToPause: 1
+    isDone: 0
+    AfterTalkEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - faceImage: {fileID: 21300000, guid: 4817e583a6be6c5469af680c89e1311c, type: 3}
+    onLeft: 0
+    name: "\u84DD"
+    dialogueText: "\u4F60\u5148\u53BB\u5427\uFF0C\u6211\u968F\u540E\u5C31\u6765\uFF0C\u8BB0\u5F97\u7ED9\u6211\u7559\u6761\u8DEF\u3002"
     hasToPause: 1
     isDone: 0
     AfterTalkEvent:
@@ -995,15 +1022,31 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: dialogueList.Array.data[0].name
       value: aaa
       objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: dialogueList_PlayerA.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: dialogueList_PlayerB.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[0].name
+      value: "\u7EFF"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[1].name
+      value: "\u84DD"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[0].onLeft
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
@@ -1017,6 +1060,22 @@ PrefabInstance:
     - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: dialogueList_PlayerB.Array.data[0].name
       value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[0].faceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ec0ca269ec0b4f4fa12877c83d9dd88, type: 3}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[1].faceImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 4817e583a6be6c5469af680c89e1311c, type: 3}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[0].dialogueText
+      value: "\u6211\u662F\u7EFF"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[1].dialogueText
+      value: "\u6211\u662F\u84DD"
       objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: dialogueList_PlayerA.Array.data[0].hasToPause
@@ -1034,9 +1093,37 @@ PrefabInstance:
       propertyPath: dialogueList_PlayerB.Array.data[0].dialogueText
       value: I'm B
       objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[0].AfterTalkEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[1].AfterTalkEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[0].AfterTalkEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[1].AfterTalkEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[0].AfterTalkEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292463, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: dialogueList_Both.Array.data[1].AfterTalkEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7911476725328292467, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
       propertyPath: m_Name
       value: DialogeTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911476725328292467, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb9dec158b485e5469249dc9518fe329, type: 3}
