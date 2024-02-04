@@ -348,6 +348,11 @@ MonoBehaviour:
     volume: 1
     playOnAwake: 0
     loop: 0
+  - clip: {fileID: 8300000, guid: 930e8fe066577884c98925baccf552f8, type: 3}
+    outputGroup: {fileID: -5735539087980833331, guid: 5c01a807e03cb1046bfef081009eb814, type: 2}
+    volume: 1
+    playOnAwake: 0
+    loop: 0
 --- !u!4 &735896439
 Transform:
   m_ObjectHideFlags: 0
@@ -439,11 +444,10 @@ MonoBehaviour:
   _interactKey: 101
   _resetGameKey: 114
   _stopGameKey: 27
-  _interactLever: 101
   _interact: 0
   _resetGame: 0
   _stopGame: 0
-  _interactL: 0
+  _dialogeContinue: 0
 --- !u!4 &1259973006
 Transform:
   m_ObjectHideFlags: 0

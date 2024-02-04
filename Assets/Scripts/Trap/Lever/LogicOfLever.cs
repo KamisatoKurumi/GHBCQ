@@ -16,7 +16,7 @@ public class LogicOfLever : MonoBehaviour
 
     void Update()
     {
-        if(InputManager.instance._interactL && isPlayerInRange)
+        if(InputManager.instance._interact && isPlayerInRange)
         {
             Debug.Log("PullDownTheLever_E");
             if(!stateOfLever)

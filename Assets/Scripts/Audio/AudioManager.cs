@@ -52,6 +52,7 @@ public class AudioManager : MonoSingleton<AudioManager>//音频管理器，存�
     //播放某一个音频，传入的name名要与音频文件的名称一致
     public static void PlayAudio(string name, bool isWait = false)
     {
+        Debug.Log("播放音频");
         if(!instance.audiosDic.ContainsKey(name))
         {
             Debug.LogWarning($"名为{name}的音频不存在");

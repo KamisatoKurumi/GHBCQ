@@ -44,6 +44,8 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
     public void InitLevel()
     {
         OnInitLevel?.Invoke();
+        
+        AudioManager.PlayAudio(AudioName.BGM_1);
         Transform startPoint = GameObject.Find("StartPoint").transform;
         if(startPoint.childCount <= 0)
         {

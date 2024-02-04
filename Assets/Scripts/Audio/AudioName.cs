@@ -7,4 +7,5 @@ public class AudioName
     public static string Key_1 = "钥匙";
     public static string Key_2 = "钥匙_1";
     public static string PlateformBreak = "平台碎裂";
+    public static string BGM_1 = "游戏制作";
 }

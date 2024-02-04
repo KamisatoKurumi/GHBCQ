@@ -76,14 +76,14 @@ namespace Farm.Dialogue
                 if(uiSign != null)
                     uiSign.SetActive(canTalk);
 
-                if(canTalk & InputManager.instance._interact)
+                if(canTalk & InputManager.instance._dialogeContinue)
                 {
                     StartCoroutine(DialogueRoutine());
                 }
             }
             else
             {
-                if(isSpeeking && InputManager.instance._interact)
+                if(isSpeeking && InputManager.instance._dialogeContinue)
                 {
                     StartCoroutine(DialogueRoutine());
                 }
