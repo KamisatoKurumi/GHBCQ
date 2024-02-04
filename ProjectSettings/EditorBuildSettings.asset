@@ -18,30 +18,30 @@ EditorBuildSettings:
     path: Assets/Scenes/XY/TestScene/Test2.unity
     guid: 86adaa11e3ac816459e0d52d1efd762e
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level1.unity
+    path: Assets/Scenes/Jie/LevelScene/Level1.unity
     guid: 3c3345f07730d5d4bafe164247da884d
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level2.unity
+    path: Assets/Scenes/Jie/LevelScene/Level2.unity
     guid: 6dda7231850039740ab0b858ca7c6649
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level3.unity
+    path: Assets/Scenes/Jie/LevelScene/Level3.unity
     guid: bb760e84b153d77448015449d3c4d83d
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level4.unity
+    path: Assets/Scenes/Jie/LevelScene/Level4.unity
     guid: 4e7c9aadffe83404aa639dd124486e14
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level5.unity
+    path: Assets/Scenes/Jie/LevelScene/Level5.unity
     guid: 28de991c4235cdb448209820a9bbeddd
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level6.unity
+    path: Assets/Scenes/Jie/LevelScene/Level6.unity
     guid: 0a3470e3acc3ff9418c241d2a1d4ee03
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level7.unity
+    path: Assets/Scenes/Jie/LevelScene/Level7.unity
     guid: 43b29956a82c31c479a59ca326570195
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level8.unity
+    path: Assets/Scenes/Jie/LevelScene/Level8.unity
     guid: b58ede0aba3e869499f03778e5342805
   - enabled: 1
-    path: Assets/Scenes/Jie/TestScene/Level9.unity
+    path: Assets/Scenes/Jie/LevelScene/Level9.unity
     guid: f9cbd87201b42dc47af61eb7d8fff222
   m_configObjects: {}
