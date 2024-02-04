@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerTag : MonoBehaviour
 {
     public PlayerType _tag;
+    public List<bool> hadKeys = new List<bool>();
 }
 
 public enum PlayerType

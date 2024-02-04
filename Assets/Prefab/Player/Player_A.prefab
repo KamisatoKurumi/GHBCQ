@@ -19804,6 +19804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: 0
+  hadKeys: 000000
 --- !u!1 &9181563893588970938
 GameObject:
   m_ObjectHideFlags: 0
