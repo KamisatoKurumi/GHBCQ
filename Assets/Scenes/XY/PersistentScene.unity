@@ -620,6 +620,7 @@ MonoBehaviour:
   - Level7
   - Level8
   - Level9
+  - Test4
   currentLevel: 0
 --- !u!4 &2013464565
 Transform:
