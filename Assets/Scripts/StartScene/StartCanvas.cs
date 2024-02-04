@@ -23,6 +23,7 @@ public class StartCanvas : EveryScene_Main
 
     public override void Init()
     {
+        GameFlowManager.instance.LockPlayers();
         startPanel.SetActive(true);
         LevelPanel.SetActive(false);
         settingPanel.SetActive(false);

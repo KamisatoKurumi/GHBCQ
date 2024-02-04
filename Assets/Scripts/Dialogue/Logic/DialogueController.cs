@@ -6,34 +6,43 @@ using UnityEngine.Events;
 namespace Farm.Dialogue
 {
     // [RequireComponent(typeof(NPCMovement))]
-    [RequireComponent(typeof(BoxCollider2D))]
+    // [RequireComponent(typeof(BoxCollider2D))]
     public class DialogueController : MonoBehaviour
     {
         // private NPCMovement npc => GetComponent<NPCMovement>();
         public UnityEvent OnFinishEvent;
-        public List<DialoguePiece> dialogueList = new List<DialoguePiece>();
+        //能触发这条对话的对象
+        public PlayerType playerType;
+        public List<DialoguePiece> dialogueList_PlayerA = new List<DialoguePiece>();
+        public List<DialoguePiece> dialogueList_PlayerB = new List<DialoguePiece>();
+        public List<DialoguePiece> dialogueList_Both = new List<DialoguePiece>();
+        private List<DialoguePiece> dialogueList = new List<DialoguePiece>();
 
         private Stack<DialoguePiece> dialogueStack;
-        [SerializeField]private bool canActivate;
+        public bool canActivate;
 
         private bool isSpeeking =false;
 
-        private bool canTalk;
+        public bool canTalk;
         private bool isTalking;
         [SerializeField]private GameObject uiSign;
 
         private void Awake() {
-            uiSign = transform.GetChild(0).gameObject;
+            if(transform.childCount > 0)
+            {
+                uiSign = transform.GetChild(0).gameObject;
+            }
             FillDialogueStack();
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
             if(canActivate)
             {
-                if(other.CompareTag("Player"))
+                if(other.CompareTag("Player") && (other.GetComponent<PlayerTag>()._tag == playerType || playerType == PlayerType.Both))
                 {
                     canTalk = true;
-                    // canTalk = !npc.isMoving && npc.interactable;
+                    dialogueList = other.GetComponent<PlayerTag>()._tag == PlayerType.Both ? dialogueList_Both : other.GetComponent<PlayerTag>()._tag == PlayerType.A ? dialogueList_PlayerA : dialogueList_PlayerB;
+                    FillDialogueStack();
                 }
             }
             else
@@ -55,11 +64,17 @@ namespace Farm.Dialogue
                 }
             }
         }
+        public void SetDialogueList()
+        {
+            dialogueList = dialogueList_Both;
+            FillDialogueStack();
+        }
 
         private void Update() {
             if(canActivate)
             {
-                uiSign.SetActive(canTalk);
+                if(uiSign != null)
+                    uiSign.SetActive(canTalk);
 
                 if(canTalk & InputManager.instance._interact)
                 {
@@ -86,7 +101,7 @@ namespace Farm.Dialogue
             }
         }
 
-        private IEnumerator DialogueRoutine()
+        public IEnumerator DialogueRoutine()
         {
             isTalking = true;
             if(dialogueStack.TryPop(out DialoguePiece result))

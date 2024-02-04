@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameFlowManager : MonoSingleton<GameFlowManager>
 {
-    [SerializeField]private GameObject[] _players;
+    public GameObject[] _players;
     private Player[] _playerScripts;
 
     [SerializeField]private Transform[] gameStartPoints = new Transform[2];
@@ -15,6 +15,7 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
 
     private bool isPause = false;
 
+    public static event Action OnInitLevel;
     public static event Action OnGameOver;
     public static event Action OnPauseGame;
     public static event Action OnContinueGame;
@@ -42,6 +43,7 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
 
     public void InitLevel()
     {
+        OnInitLevel?.Invoke();
         Transform startPoint = GameObject.Find("StartPoint").transform;
         if(startPoint.childCount <= 0)
         {
@@ -59,15 +61,25 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
         {
             player.Init();
         }
+    }
+
+    public void SetPlayerInStartPoint()
+    {
         currentPlayer = 0;
         ResetPlayer();
-        _players[1].SetActive(false);
     }
 
     public void ResetPlayer()
     {
         _players[currentPlayer].SetActive(true);
         _players[currentPlayer].transform.position = gameStartPoints[currentPlayer].position;
+        foreach(var player in _players)
+        {
+            if(player != _players[currentPlayer])
+            {
+                player.SetActive(false);
+            }
+        }
     }
 
     public void ResetCurrentLevel()
@@ -126,5 +138,23 @@ public class GameFlowManager : MonoSingleton<GameFlowManager>
             player.SetActive(false);
         }
         SaveLoadManager.instance.SaveLevelData(new LevelData(TransitionManager.instance.currentLevel, true));
+    }
+
+    public void LockPlayers()
+    {
+        Debug.Log("LockPlayers");
+        foreach(var player in _players)
+        {
+            player.GetComponent<PlayerController>()._active = false;
+        }
+    }
+
+    public void UnlockPlayers()
+    {
+        Debug.Log("UnlockPlayers");
+        foreach(var player in _players)
+        {
+            player.GetComponent<PlayerController>()._active = true;
+        }
     }
 }
