@@ -9,6 +9,7 @@ public class LogicOfLever : MonoBehaviour
     private PlayerItemHandler playerItem;
     [SerializeField] private bool stateOfLever = false;
     public List<LDoor> lDoors;
+    public GameObject EKey;
     void Start()
     { 
        // anim = GetComponent<Animator>();
@@ -16,6 +17,7 @@ public class LogicOfLever : MonoBehaviour
 
     void Update()
     {
+        EKey.SetActive(isPlayerInRange);
         if(InputManager.instance._interact && isPlayerInRange)
         {
             Debug.Log("PullDownTheLever_E");
