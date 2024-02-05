@@ -58,6 +58,12 @@ public class StartCanvas : EveryScene_Main
         settingPanel.SetActive(true);
     }
 
+    public void OnSetBackButtonClicked()
+    {
+        startPanel.SetActive(true);
+        settingPanel.SetActive(false);
+    }
+
     public void OnQuitButtonClicked()
     {
         Debug.Log("Quit Game!");
