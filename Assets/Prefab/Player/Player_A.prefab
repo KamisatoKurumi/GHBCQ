@@ -19957,6 +19957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb23717f7dee14688bccda60b77b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _active: 0
   _characterBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.65, z: 0}
@@ -19977,7 +19978,7 @@ MonoBehaviour:
   _jumpApexThreshold: 10
   _coyoteTimeThreshold: 0.1
   _jumpBuffer: 0.1
-  _jumpEndEarlyGravityModifier: 1
+  _jumpEndEarlyGravityModifier: 3
   _freeColliderIterations: 10
 --- !u!114 &1547346161
 MonoBehaviour:
